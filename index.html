@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baby Shower RSVP</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      color: #ff69b4;
+      font-size: 2.5rem;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    form {
+      background: white;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+    }
+    button {
+      background: #ff69b4;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #ff1493;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>💖 Invitación Baby Shower 💖</h1>
+  <p>¡Nos encantaría contar contigo! Por favor confirma tu asistencia.</p>
+
+  <form id="rsvp-form">
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+    
+    <select name="asistencia" required>
+      <option value="">¿Podrás asistir?</option>
+      <option value="Sí">Sí 🎉</option>
+      <option value="No">No 😢</option>
+    </select>
+
+    <input type="number" name="acompañantes" placeholder="Número de acompañantes" min="0">
+
+    <button type="submit">Enviar Confirmación</button>
+  </form>
+
+  <p id="mensaje" style="color: green; margin-top: 20px;"></p>
+
+  <script>
+    const form = document.getElementById('rsvp-form');
+    const mensaje = document.getElementById('mensaje');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const object = {};
+      data.forEach((value, key) => object[key] = value);
+
+      fetch('https://sheetdb.io/api/v1/pwmif0ql37fdy', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(object)
+      })
+      .then(response => {
+        if(response.ok){
+          mensaje.textContent = "¡Gracias! Tu RSVP ha sido enviado 💖";
+          form.reset();
+        } else {
+          mensaje.textContent = "Ups, ocurrió un error. Intenta de nuevo 😢";
+        }
+      })
+      .catch(() => {
+        mensaje.textContent = "Ups, ocurrió un error. Intenta de nuevo 😢";
+      });
+    });
+  </script>
+
+</body>
+</html>
