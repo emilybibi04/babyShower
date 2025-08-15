@@ -14,6 +14,13 @@
   }
 
   @font-face {
+    font-family: 'rocaThin';
+    src: url('fonts/rocaThin.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
     font-family: 'latusca';
     src: url('fonts/latusca.ttf') format('truetype');
     font-weight: normal;
@@ -24,6 +31,13 @@
     font-family: 'ttLight';
     src: url('fonts/ttLight.otf') format('truetype');
     font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'ttBold';
+    src: url('fonts/ttBold.otf') format('truetype');
+    font-weight: bold;
     font-style: normal;
   }
 
@@ -53,10 +67,9 @@
     .desktop-msg { display: block; }
   }
 
-  p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-  }
+
+
+
 
   form {
     background: #fff0f5;
@@ -106,17 +119,91 @@
     0% { transform: translate(-50%, 0); }
     100% { transform: translate(-50%, -120vh); }
   }
+
+  .fecha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'rocaTwo', sans-serif;
+    color: #8e6e4b;
+    gap: 20px;
+  }
+
+  .lado {
+    display: flex;
+    align-items: center;
+  }
+
+  .lado .texto {
+    font-family: 'ttLight';
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding: 0 10px;
+    border-top: 2px solid #8e6e4b;
+    border-bottom: 2px solid #8e6e4b;
+  }
+
+  .centro {
+    text-align: center;
+  }
+
+  .centro .mes {
+    font-family: 'ttBold';
+    font-size: 34px;
+    letter-spacing: 2.5px;
+  }
+
+  .centro .dia {
+    font-size: 90px;
+    font-family: 'rocaTwo';
+    margin: -10px 0;
+  }
+
+  .centro .anio {
+    font-family: 'ttBold';
+    font-size: 34px;
+    letter-spacing: 2.5px;
+  }
+
 </style>
 </head>
 <body>
 
 <div class="desktop-msg">
-  ⚠️ Esta invitación solo se puede abrir desde tu celular. 📱
+  Esta invitación solo se puede abrir desde tu celular.
 </div>
 
-<h3 style="color: #4b341b; font-family: 'ttLight'; font-size: 25px; letter-spacing: 3px; font-weight: lighter; margin-bottom: -110px;">please join us for a</h3>
-<h1 style="color: #8e6e4b; font-family: 'rocaTwo'; font-size: 123px; letter-spacing: -3px; margin-bottom: -150px;">BABY</h1>
-<h2 style="color: #8e6e4b; font-family: 'latusca'; font-size: 98px; font-weight: lighter;">SHOWER</h2>
+<h3 style="color: #4b341b; font-family: 'ttLight'; font-size: 28px; letter-spacing: 2.5px; font-weight: lighter; margin-bottom: -105px;">please join us for a</h3>
+<h1 style="color: #4b341b; font-family: 'rocaTwo'; font-size: 128px; letter-spacing: -3px; margin-bottom: -158px;">BABY</h1>
+<h2 style="color: #8e6e4b; font-family: 'latusca'; font-size: 100px; font-weight: lighter;">SHOWER</h2>
+<h3 style="color: #4b341b; font-family: 'ttLight'; font-size: 28px; letter-spacing: 2.5px; font-weight: lighter; margin-top: -105px; line-height: 28px;">honoring the two <br> beautiful moms-to-be</h3>
+
+
+<h1 style="color: #4b341b; font-family: 'rocaTwo'; font-size: 65px; letter-spacing: -3px; line-height: 60px; margin-top: -10px; margin-bottom: -48px;">Stephany </h1>
+<h1 style="color: #8e6e4b; font-family: 'rocaTwo'; font-size: 65px; letter-spacing: -3px; line-height: 60px; margin-bottom: -20px;">& Karen</h1>
+
+<h3 style="color: #4b341b; font-family: 'ttBold'; font-size: 36px; letter-spacing: 2.5px; font-weight: lighter; margin-bottom: -81px;">sep</h3>
+<h1 style="color: #4b341b; font-family: 'rocaTwo'; font-size: 90px; letter-spacing: -3px; margin-bottom: -70px;">12</h1>
+<h3 style="color: #4b341b; font-family: 'ttBold'; font-size: 36px; letter-spacing: 2.5px; font-weight: lighter;">2025</h3>
+
+<div class="fecha">
+  <div class="lado">
+    <span class="texto">saturday</span>
+  </div>
+
+  <div class="centro">
+    <div class="mes">sep</div>
+    <div class="dia">12</div>
+    <div class="anio">2025</div>
+  </div>
+
+  <div class="lado">
+    <span class="texto">12:00pm</span>
+  </div>
+</div>
+
+
+
 <p style="font-family: 'latusca';">¡Nos encantaría contar contigo! Por favor confirma tu asistencia.</p>
 
 <form id="rsvp-form">
