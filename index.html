@@ -3,13 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Baby Shower RSVP</title>
+<title>Baby Shower</title>
 <style>
+
+  @font-face {
+    font-family: 'rocaTwo';
+    src: url('fonts/rocaTwo.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'latusca';
+    src: url('fonts/latusca.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'ttLight';
+    src: url('fonts/ttLight.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
   /* --- Estilos base --- */
   body {
     display: none;
     font-family: 'Arial', sans-serif;
-    background: #fff0f5;
+    background: #faecdc;
     text-align: center;
     padding: 20px;
     overflow-x: hidden;
@@ -29,11 +51,6 @@
 
   @media (min-width: 768px) {
     .desktop-msg { display: block; }
-  }
-
-  h1 {
-    color: #ff69b4;
-    font-size: 2.5rem;
   }
 
   p {
@@ -80,8 +97,8 @@
     bottom: -200px; /* empieza más abajo de la pantalla */
     left: 50%; /* centrado horizontal */
     transform: translateX(-50%);
-    width: 200px; /* tamaño más grande */
-    animation: subir 5s linear forwards;
+    width: 400px; /* tamaño más grande */
+    animation: subir 4s linear forwards;
     z-index: 0;
   }
 
@@ -97,8 +114,10 @@
   ⚠️ Esta invitación solo se puede abrir desde tu celular. 📱
 </div>
 
-<h1>💖 Invitación Baby Shower 💖</h1>
-<p>¡Nos encantaría contar contigo! Por favor confirma tu asistencia.</p>
+<h3 style="color: #4b341b; font-family: 'ttLight'; font-size: 25px; letter-spacing: 3px; font-weight: lighter; margin-bottom: -110px;">please join us for a</h3>
+<h1 style="color: #8e6e4b; font-family: 'rocaTwo'; font-size: 123px; letter-spacing: -3px; margin-bottom: -150px;">BABY</h1>
+<h2 style="color: #8e6e4b; font-family: 'latusca'; font-size: 98px; font-weight: lighter;">SHOWER</h2>
+<p style="font-family: 'latusca';">¡Nos encantaría contar contigo! Por favor confirma tu asistencia.</p>
 
 <form id="rsvp-form">
   <input type="text" name="nombre" placeholder="Tu nombre" required>
@@ -147,12 +166,12 @@
   // --- Animar globo ---
   window.addEventListener('load', () => {
     const globo = document.createElement('img');
-    globo.src = 'prueba.png'; // <- tu imagen del globo
+    globo.src = 'peluche.png'; // <- tu imagen del globo
     globo.className = 'globo';
     document.body.appendChild(globo);
 
     // remover globo después de animación
-    setTimeout(() => { globo.remove(); }, 5000);
+    setTimeout(() => { globo.remove(); }, 4000);
   });
 </script>
 
