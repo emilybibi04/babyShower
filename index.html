@@ -5,35 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Baby Shower RSVP</title>
 <style>
+  /* --- Estilos base --- */
   body {
+    display: none;
     font-family: 'Arial', sans-serif;
-    background: #fffaf5;
+    background: #fff0f5;
     text-align: center;
     padding: 20px;
     overflow-x: hidden;
   }
 
-  /* Mensaje solo en escritorio */
-  .desktop-msg { display: none; }
-  @media (min-width: 768px) {
-    body { display: none; }
-    .desktop-msg { display: block; padding: 50px; font-size: 1.2rem; color: #ff69b4; }
+  @media (max-width: 767px) {
+    body { display: block; }
   }
 
-  /* Imagen de invitación */
-  .invitacion {
-    max-width: 500px;
-    width: 100%;
-    border-radius: 12px;
-    margin: 0 auto;
-    display: block;
+  .desktop-msg {
+    display: none;
+    text-align: center;
+    padding: 50px;
+    font-size: 1.2rem;
+    color: #ff69b4;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-msg { display: block; }
   }
 
   h1 {
     color: #ff69b4;
-    font-size: 2.2rem;
-    margin-top: 40px;
+    font-size: 2.5rem;
   }
+
   p {
     font-size: 1.1rem;
     margin-bottom: 20px;
@@ -67,16 +69,19 @@
     cursor: pointer;
     font-weight: bold;
   }
-  button:hover { background: #ff1493; }
 
-  /* Globo centrado y grande */
+  button:hover {
+    background: #ff1493;
+  }
+
+  /* --- Globo centrado y grande --- */
   .globo {
-    position: fixed;
-    bottom: -150px;
-    left: 50%;
+    position: fixed; /* para que siempre esté en el mismo sitio */
+    bottom: -200px; /* empieza más abajo de la pantalla */
+    left: 50%; /* centrado horizontal */
     transform: translateX(-50%);
-    width: 120px;
-    animation: subir 6s linear forwards;
+    width: 200px; /* tamaño más grande */
+    animation: subir 5s linear forwards;
     z-index: 0;
   }
 
@@ -92,20 +97,20 @@
   ⚠️ Esta invitación solo se puede abrir desde tu celular. 📱
 </div>
 
-<!-- Imagen de invitación -->
-<img src="invitacion.png" alt="Invitación Baby Shower" class="invitacion">
-
-<h1>💖 Confirmación de Asistencia 💖</h1>
+<h1>💖 Invitación Baby Shower 💖</h1>
 <p>¡Nos encantaría contar contigo! Por favor confirma tu asistencia.</p>
 
 <form id="rsvp-form">
   <input type="text" name="nombre" placeholder="Tu nombre" required>
+
   <select name="asistencia" required>
     <option value="">¿Podrás asistir?</option>
     <option value="Sí">Sí 🎉</option>
     <option value="No">No 😢</option>
   </select>
+
   <input type="number" name="acompañantes" placeholder="Número de acompañantes" min="0">
+
   <button type="submit">Enviar Confirmación</button>
 </form>
 
@@ -139,13 +144,15 @@
     });
   });
 
-  // Globo animado centrado
+  // --- Animar globo ---
   window.addEventListener('load', () => {
     const globo = document.createElement('img');
-    globo.src = 'globo.png'; // tu imagen del globo
+    globo.src = 'prueba.png'; // <- tu imagen del globo
     globo.className = 'globo';
     document.body.appendChild(globo);
-    setTimeout(() => { globo.remove(); }, 6000);
+
+    // remover globo después de animación
+    setTimeout(() => { globo.remove(); }, 5000);
   });
 </script>
 
