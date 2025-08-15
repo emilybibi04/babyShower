@@ -1,101 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Baby Shower RSVP</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #fff0f5;
-      text-align: center;
-      padding: 40px;
-    }
-    h1 {
-      color: #ff69b4;
-      font-size: 2.5rem;
-    }
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-    }
-    form {
-      background: white;
-      display: inline-block;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      text-align: left;
-    }
-    input, select, button {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 1rem;
-    }
-    button {
-      background: #ff69b4;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    button:hover {
-      background: #ff1493;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Baby Shower RSVP</title>
+<style>
+  /* --- Estilos base --- */
+  body { display: none; font-family: 'Arial', sans-serif; background: #fff0f5; text-align: center; padding: 20px; overflow-x: hidden; }
+
+  @media (max-width: 767px) { body { display: block; } }
+
+  .desktop-msg { display: none; text-align: center; padding: 50px; font-size: 1.2rem; color: #ff69b4; }
+  @media (min-width: 768px) { .desktop-msg { display: block; } }
+
+  h1 { color: #ff69b4; font-size: 2.5rem; }
+  p { font-size: 1.1rem; margin-bottom: 20px; }
+
+  form {
+    background: #fff0f5;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+  }
+
+  button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  button:hover { background: #ff1493; }
+
+  /* --- Animación del globo --- */
+  .globo {
+    position: absolute;
+    bottom: -100px; /* empieza fuera de pantalla */
+    width: 50px; /* tamaño del globo */
+    animation: subir 5s linear forwards;
+    z-index: 0;
+  }
+
+  @keyframes subir {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-110vh); } /* sube fuera de la pantalla */
+  }
+</style>
 </head>
 <body>
 
-  <h1>💖 Invitación Baby Shower 💖</h1>
-  <p>¡Nos encantaría contar contigo! Por favor confirma tu asistencia.</p>
+<div class="desktop-msg">
+  ⚠️ Esta invitación solo se puede abrir desde tu celular. 📱
+</div>
 
-  <form id="rsvp-form">
-    <input type="text" name="nombre" placeholder="Tu nombre" required>
-    
-    <select name="asistencia" required>
-      <option value="">¿Podrás asistir?</option>
-      <option value="Sí">Sí 🎉</option>
-      <option value="No">No 😢</option>
-    </select>
+<h1>💖 Invitación Baby Shower 💖</h1>
+<p>¡Nos encantaría contar contigo! Por favor confirma tu asistencia.</p>
 
-    <input type="number" name="acompañantes" placeholder="Número de acompañantes" min="0">
+<form id="rsvp-form">
+  <input type="text" name="nombre" placeholder="Tu nombre" required>
 
-    <button type="submit">Enviar Confirmación</button>
-  </form>
+  <select name="asistencia" required>
+    <option value="">¿Podrás asistir?</option>
+    <option value="Sí">Sí 🎉</option>
+    <option value="No">No 😢</option>
+  </select>
 
-  <p id="mensaje" style="color: green; margin-top: 20px;"></p>
+  <input type="number" name="acompañantes" placeholder="Número de acompañantes" min="0">
 
-  <script>
-    const form = document.getElementById('rsvp-form');
-    const mensaje = document.getElementById('mensaje');
+  <button type="submit">Enviar Confirmación</button>
+</form>
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      const object = {};
-      data.forEach((value, key) => object[key] = value);
+<p id="mensaje" style="color: green; margin-top: 15px;"></p>
 
-      fetch('https://sheetdb.io/api/v1/pwmif0ql37fdy', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(object)
-      })
-      .then(response => {
-        if(response.ok){
-          mensaje.textContent = "¡Gracias! Tu RSVP ha sido enviado 💖";
-          form.reset();
-        } else {
-          mensaje.textContent = "Ups, ocurrió un error. Intenta de nuevo 😢";
-        }
-      })
-      .catch(() => {
+<script>
+  const form = document.getElementById('rsvp-form');
+  const mensaje = document.getElementById('mensaje');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const object = {};
+    data.forEach((value, key) => object[key] = value);
+
+    fetch('https://sheetdb.io/api/v1/pwmif0ql37fdy', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(object)
+    })
+    .then(response => {
+      if(response.ok){
+        mensaje.textContent = "¡Gracias! Tu RSVP ha sido enviado 💖";
+        form.reset();
+      } else {
         mensaje.textContent = "Ups, ocurrió un error. Intenta de nuevo 😢";
-      });
+      }
+    })
+    .catch(() => {
+      mensaje.textContent = "Ups, ocurrió un error. Intenta de nuevo 😢";
     });
-  </script>
+  });
+
+  // --- Animar globo ---
+  window.addEventListener('load', () => {
+    const globo = document.createElement('img');
+    globo.src = 'prueba.png'; // <- aquí pones tu imagen
+    globo.className = 'globo';
+    globo.style.left = Math.random() * 80 + 'vw'; // posición horizontal aleatoria
+    document.body.appendChild(globo);
+
+    // opcional: remover el globo después de la animación
+    setTimeout(() => { globo.remove(); }, 5000);
+  });
+</script>
 
 </body>
 </html>
