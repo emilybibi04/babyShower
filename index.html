@@ -60,7 +60,7 @@
     text-align: center;
     padding: 50px;
     font-size: 1.2rem;
-    color: #ff69b4;
+    color: #4b341b;
   }
 
   @media (min-width: 768px) {
@@ -72,7 +72,7 @@
 
 
   form {
-    background: #fff0f5;
+    background: #ddb97b;
     padding: 25px;
     border-radius: 20px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
@@ -84,16 +84,18 @@
   }
 
   input, select, button {
-    width: 100%;
+    width: 285px;
     padding: 10px;
     margin: 10px 0;
     border-radius: 8px;
     border: 1px solid #ddd;
     font-size: 1rem;
+    margin-left: auto;
+    margin-right: auto; 
   }
 
   button {
-    background: #ff69b4;
+    background: #c9a35c;
     color: white;
     border: none;
     cursor: pointer;
@@ -124,8 +126,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'rocaTwo', sans-serif;
-    color: #8e6e4b;
+    font-family: 'rocaThin', sans-serif;
+    color: #4b341b;
     gap: 20px;
   }
 
@@ -135,12 +137,11 @@
   }
 
   .lado .texto {
-    font-family: 'ttLight';
-    font-size: 20px;
+    font-family: 'rocaThin';
+    font-size: 28px;
     letter-spacing: 1px;
-    padding: 0 10px;
-    border-top: 2px solid #8e6e4b;
-    border-bottom: 2px solid #8e6e4b;
+    border-top: 2px solid #4b341b;
+    border-bottom: 2px solid #4b341b;
   }
 
   .centro {
@@ -149,19 +150,19 @@
 
   .centro .mes {
     font-family: 'ttBold';
-    font-size: 34px;
+    font-size: 36px;
     letter-spacing: 2.5px;
   }
 
   .centro .dia {
     font-size: 90px;
     font-family: 'rocaTwo';
-    margin: -10px 0;
+    margin: -1px 0;
   }
 
   .centro .anio {
     font-family: 'ttBold';
-    font-size: 34px;
+    font-size: 36px;
     letter-spacing: 2.5px;
   }
 
@@ -180,44 +181,46 @@
 
 
 <h1 style="color: #4b341b; font-family: 'rocaTwo'; font-size: 65px; letter-spacing: -3px; line-height: 60px; margin-top: -10px; margin-bottom: -48px;">Stephany </h1>
-<h1 style="color: #8e6e4b; font-family: 'rocaTwo'; font-size: 65px; letter-spacing: -3px; line-height: 60px; margin-bottom: -20px;">& Karen</h1>
-
-<h3 style="color: #4b341b; font-family: 'ttBold'; font-size: 36px; letter-spacing: 2.5px; font-weight: lighter; margin-bottom: -81px;">sep</h3>
-<h1 style="color: #4b341b; font-family: 'rocaTwo'; font-size: 90px; letter-spacing: -3px; margin-bottom: -70px;">12</h1>
-<h3 style="color: #4b341b; font-family: 'ttBold'; font-size: 36px; letter-spacing: 2.5px; font-weight: lighter;">2025</h3>
+<h1 style="color: #8e6e4b; font-family: 'rocaTwo'; font-size: 65px; letter-spacing: -3px; line-height: 60px; margin-bottom: 20px;">& Karen</h1>
 
 <div class="fecha">
-  <div class="lado">
-    <span class="texto">saturday</span>
+  <div style="margin-right: -10px;" class="lado">
+    <span style="font-family: 'rocaThin';" class="texto">saturday</span>
   </div>
 
   <div class="centro">
-    <div class="mes">sep</div>
-    <div class="dia">12</div>
+    <div style="margin-bottom: -22px;" class="mes">sep</div>
+    <div style="margin-bottom: -34px;" class="dia">12</div>
     <div class="anio">2025</div>
   </div>
 
-  <div class="lado">
+  <div style="margin-left: -10px;" class="lado">
     <span class="texto">12:00pm</span>
   </div>
 </div>
 
+<h3 style="color: #4b341b; font-family: 'ttLight'; font-size: 28px; letter-spacing: 2.5px; font-weight: lighter; margin-top: 10px; margin-bottom: 90px; line-height: 28px;">alborada 12ava etapa <br> manzana 21 villa 32</h3>
+
+<div style="display: flex; justify-content: center;">
+  <img src="ropa3.png" width="450">
+</div>
 
 
-<p style="font-family: 'latusca';">¡Nos encantaría contar contigo! Por favor confirma tu asistencia.</p>
+<h2 style="color: #8e6e4b; font-family: 'rocaTwo'; font-size: 120px; font-weight: lighter; margin-top: -6px; margin-bottom: -70px; ">RSVP</h2>
+<h3 style="color: #4b341b; font-family: 'ttLight'; font-size: 28px; letter-spacing: 2.5px; font-weight: lighter; margin-bottom: 30px; line-height: 28px;">looking foward to celebrating with you!</h3>
 
 <form id="rsvp-form">
-  <input type="text" name="nombre" placeholder="Tu nombre" required>
+  <input type="text" name="nombre" placeholder="Your name" required>
 
   <select name="asistencia" required>
-    <option value="">¿Podrás asistir?</option>
-    <option value="Sí">Sí 🎉</option>
-    <option value="No">No 😢</option>
+    <option value="">Will you be attending?</option>
+    <option value="Sí">Accepts</option>
+    <option value="No">Regrets</option>
   </select>
 
-  <input type="number" name="acompañantes" placeholder="Número de acompañantes" min="0">
+  <input type="number" name="acompañantes" placeholder="Number of guests" min="0">
 
-  <button type="submit">Enviar Confirmación</button>
+  <button type="submit">Submit</button>
 </form>
 
 <p id="mensaje" style="color: green; margin-top: 15px;"></p>
