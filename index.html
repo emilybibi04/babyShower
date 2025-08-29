@@ -106,13 +106,12 @@
     background: #ff1493;
   }
 
-  /* --- Globo centrado y grande --- */
   .globo {
-    position: fixed; /* para que siempre esté en el mismo sitio */
-    bottom: -200px; /* empieza más abajo de la pantalla */
-    left: 50%; /* centrado horizontal */
+    position: fixed;
+    bottom: -200px;
+    left: 50%;
     transform: translateX(-50%);
-    width: 400px; /* tamaño más grande */
+    width: 400px;
     animation: subir 4s linear forwards;
     z-index: 0;
   }
@@ -195,11 +194,11 @@
   </div>
 
   <div style="margin-left: -10px;" class="lado">
-    <span class="texto">12:00pm</span>
+    <span class="texto">04:30pm</span>
   </div>
 </div>
 
-<h3 style="color: #4b341b; font-family: 'ttLight'; font-size: 28px; letter-spacing: 2.5px; font-weight: lighter; margin-top: 10px; margin-bottom: 90px; line-height: 28px;">alborada 12ava etapa <br> manzana 21 villa 32</h3>
+<h3 style="color: #4b341b; font-family: 'ttLight'; font-size: 28px; letter-spacing: 2.5px; font-weight: lighter; margin-top: 10px; margin-bottom: 90px; line-height: 28px;">721 2nd Street E <br> Saskatoon</h3>
 
 <div style="display: flex; justify-content: center;">
   <img src="ropa3.png" width="450">
@@ -242,25 +241,23 @@
     })
     .then(response => {
       if(response.ok){
-        mensaje.textContent = "¡Gracias! Tu RSVP ha sido enviado 💖";
+        mensaje.textContent = "Thanks, your RSVP has been sent";
         form.reset();
       } else {
-        mensaje.textContent = "Ups, ocurrió un error. Intenta de nuevo 😢";
+        mensaje.textContent = "Error. Try Again";
       }
     })
     .catch(() => {
-      mensaje.textContent = "Ups, ocurrió un error. Intenta de nuevo 😢";
+      mensaje.textContent = "Error. Try Again";
     });
   });
 
-  // --- Animar globo ---
   window.addEventListener('load', () => {
     const globo = document.createElement('img');
-    globo.src = 'peluche.png'; // <- tu imagen del globo
+    globo.src = 'peluche.png';
     globo.className = 'globo';
     document.body.appendChild(globo);
 
-    // remover globo después de animación
     setTimeout(() => { globo.remove(); }, 4000);
   });
 </script>
