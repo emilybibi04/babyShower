@@ -222,7 +222,7 @@
   <button type="submit">Submit</button>
 </form>
 
-<p id="mensaje" style="color: green; margin-top: 15px;"></p>
+<p id="mensaje" style="color: #4b341b; margin-top: 15px;"></p>
 
 <script>
   const form = document.getElementById('rsvp-form');
@@ -241,7 +241,7 @@
     })
     .then(response => {
       if(response.ok){
-        mensaje.textContent = "Thanks, your RSVP has been sent";
+        mensaje.textContent = "Thank you! Your RSVP has been sent";
         form.reset();
       } else {
         mensaje.textContent = "Error. Try Again";
